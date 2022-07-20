@@ -621,10 +621,12 @@ type RemoveImagesOptions struct {
 // Note that most errors are non-fatal and collected into `rmErrors` return
 // value.
 func (r *Runtime) RemoveImages(ctx context.Context, names []string, options *RemoveImagesOptions) (reports []*RemoveImageReport, rmErrors []error) {
+	fmt.Println("in removeimages")
+	fmt.Println("testing")
 	if options == nil {
 		options = &RemoveImagesOptions{}
 	}
-
+	fmt.Println("libimage remove images")
 	if options.ExternalContainers && options.IsExternalContainerFunc == nil {
 		return nil, []error{fmt.Errorf("libimage error: cannot remove external containers without callback")}
 	}
@@ -683,6 +685,7 @@ func (r *Runtime) RemoveImages(ctx context.Context, names []string, options *Rem
 				deleteMap[img.ID()] = dm
 			}
 			dm.referencedBy = append(dm.referencedBy, resolvedName)
+			fmt.Println("dm.referencedby: ", dm.referencedBy)
 		}
 
 	default:

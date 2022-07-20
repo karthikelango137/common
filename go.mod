@@ -122,3 +122,5 @@ retract (
 )
 
 replace github.com/opencontainers/runc => github.com/opencontainers/runc v1.1.1-0.20220617142545-8b9452f75cbc
+
+replace github.com/containers/common => github.com/karthikelango137/common v0.48.1-0.20220720175440-5c1987cbdac5
